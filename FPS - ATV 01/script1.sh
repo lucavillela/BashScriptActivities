@@ -3,13 +3,11 @@
 echo "Insert a file name and its type will be returned:"
 read filename
 
-for arq in *
-do
-	if [ "$arq" = "$filename" ]
+if [ -e "$filename" ]
 	then
 		filepath=$(readlink -f "$filename")
 		result=$(./script2.sh "$filepath")
-		
+
 		case $result in
 			1)
 				echo "this file is a directory";;
@@ -20,6 +18,7 @@ do
 			*)
 				echo "error";;
 		esac
-	fi
-done
+else
+	echo "this file does not exist"
+fi
 
