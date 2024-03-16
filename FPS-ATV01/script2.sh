@@ -1,20 +1,20 @@
 #!/bin/bash
 
-result=0
-
 if [ $# -gt 0 ]
 then
 	if [ -d "$1" ]
 	then
-		result=1
+		echo 1
 		
 	elif [ -x "$1" ]
 	then
-		result=2
+		echo 2
+	else
+		echo 0
 	fi
 fi
 
-echo $result 
+
 
 
 
